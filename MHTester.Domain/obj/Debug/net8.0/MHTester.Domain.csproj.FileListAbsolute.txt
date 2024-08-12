@@ -1,0 +1,11 @@
+C:\Projects\Objectives.MHTester\MHTester.Domain\bin\Debug\net8.0\MHTester.Domain.deps.json
+C:\Projects\Objectives.MHTester\MHTester.Domain\bin\Debug\net8.0\MHTester.Domain.dll
+C:\Projects\Objectives.MHTester\MHTester.Domain\bin\Debug\net8.0\MHTester.Domain.pdb
+C:\Projects\Objectives.MHTester\MHTester.Domain\obj\Debug\net8.0\MHTester.Domain.GeneratedMSBuildEditorConfig.editorconfig
+C:\Projects\Objectives.MHTester\MHTester.Domain\obj\Debug\net8.0\MHTester.Domain.AssemblyInfoInputs.cache
+C:\Projects\Objectives.MHTester\MHTester.Domain\obj\Debug\net8.0\MHTester.Domain.AssemblyInfo.cs
+C:\Projects\Objectives.MHTester\MHTester.Domain\obj\Debug\net8.0\MHTester.Domain.csproj.CoreCompileInputs.cache
+C:\Projects\Objectives.MHTester\MHTester.Domain\obj\Debug\net8.0\MHTester.Domain.dll
+C:\Projects\Objectives.MHTester\MHTester.Domain\obj\Debug\net8.0\refint\MHTester.Domain.dll
+C:\Projects\Objectives.MHTester\MHTester.Domain\obj\Debug\net8.0\MHTester.Domain.pdb
+C:\Projects\Objectives.MHTester\MHTester.Domain\obj\Debug\net8.0\ref\MHTester.Domain.dll

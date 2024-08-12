@@ -1,0 +1,15 @@
+C:\Projects\Objectives.MHTester\MHTester.Application\bin\Debug\net8.0\MHTester.Application.deps.json
+C:\Projects\Objectives.MHTester\MHTester.Application\bin\Debug\net8.0\MHTester.Application.dll
+C:\Projects\Objectives.MHTester\MHTester.Application\bin\Debug\net8.0\MHTester.Application.pdb
+C:\Projects\Objectives.MHTester\MHTester.Application\obj\Debug\net8.0\MHTester.Application.GeneratedMSBuildEditorConfig.editorconfig
+C:\Projects\Objectives.MHTester\MHTester.Application\obj\Debug\net8.0\MHTester.Application.AssemblyInfoInputs.cache
+C:\Projects\Objectives.MHTester\MHTester.Application\obj\Debug\net8.0\MHTester.Application.AssemblyInfo.cs
+C:\Projects\Objectives.MHTester\MHTester.Application\obj\Debug\net8.0\MHTester.Application.csproj.CoreCompileInputs.cache
+C:\Projects\Objectives.MHTester\MHTester.Application\obj\Debug\net8.0\MHTester.Application.dll
+C:\Projects\Objectives.MHTester\MHTester.Application\obj\Debug\net8.0\refint\MHTester.Application.dll
+C:\Projects\Objectives.MHTester\MHTester.Application\obj\Debug\net8.0\MHTester.Application.pdb
+C:\Projects\Objectives.MHTester\MHTester.Application\obj\Debug\net8.0\ref\MHTester.Application.dll
+C:\Projects\Objectives.MHTester\MHTester.Application\bin\Debug\net8.0\MHTester.Domain.dll
+C:\Projects\Objectives.MHTester\MHTester.Application\bin\Debug\net8.0\MHTester.Domain.pdb
+C:\Projects\Objectives.MHTester\MHTester.Application\obj\Debug\net8.0\MHTester.Application.csproj.AssemblyReference.cache
+C:\Projects\Objectives.MHTester\MHTester.Application\obj\Debug\net8.0\MHTester.Application.csproj.CopyComplete

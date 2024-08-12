@@ -1,0 +1,74 @@
+{
+  "runtimeTarget": {
+    "name": ".NETCoreApp,Version=v8.0",
+    "signature": ""
+  },
+  "compilationOptions": {},
+  "targets": {
+    ".NETCoreApp,Version=v8.0": {
+      "MHTester.api/1.0.0": {
+        "dependencies": {
+          "MHTester.Application": "1.0.0",
+          "MHTester.Contracts": "1.0.0",
+          "MHTester.Infrastructure": "1.0.0"
+        },
+        "runtime": {
+          "MHTester.api.dll": {}
+        }
+      },
+      "MHTester.Application/1.0.0": {
+        "dependencies": {
+          "MHTester.Domain": "1.0.0"
+        },
+        "runtime": {
+          "MHTester.Application.dll": {}
+        }
+      },
+      "MHTester.Contracts/1.0.0": {
+        "runtime": {
+          "MHTester.Contracts.dll": {}
+        }
+      },
+      "MHTester.Domain/1.0.0": {
+        "runtime": {
+          "MHTester.Domain.dll": {}
+        }
+      },
+      "MHTester.Infrastructure/1.0.0": {
+        "dependencies": {
+          "MHTester.Application": "1.0.0"
+        },
+        "runtime": {
+          "MHTester.Infrastructure.dll": {}
+        }
+      }
+    }
+  },
+  "libraries": {
+    "MHTester.api/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "MHTester.Application/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "MHTester.Contracts/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "MHTester.Domain/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "MHTester.Infrastructure/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    }
+  }
+}
