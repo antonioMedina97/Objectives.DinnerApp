@@ -1,17 +1,18 @@
-﻿using MHTester.Application.Common;
+﻿using MHTester.Application.Common.Errors;
 using MHTester.Application.Common.Interfaces.Authentication;
 using MHTester.Application.Common.Interfaces.Persistence;
 using MHTester.Domain.Entities;
+using OneOf;
 
 namespace MHTester.Application.Services.Authentication;
 
 public class AuthenticationService(IJwtTokenGenerator jwtTokenGenerator, IUserRepository userRepository) : IAuthenticationService
 {
-    public AuthenticationResult Register(string firstName, string lastName, string email, string password)
+    public OneOf<AuthenticationResult, IError> Register(string firstName, string lastName, string email, string password)
     {
         if (userRepository.GetUserByEmail(email) is not null)
         {
-            throw new DuplicateEmailException();
+            return new DuplicateEmailError();
         }
         
         var user = new User

@@ -20,23 +20,29 @@ public class AuthenticationController : ControllerBase
     [HttpPost("register")]
     public IActionResult Register(RegisterRequest registerRequest)
     {
-        var authResult = _authenticationService.Register(
+        var registerResult = _authenticationService.Register(
             registerRequest.FirstName,
             registerRequest.LastName,
             registerRequest.Email,
             registerRequest.Password);
 
-        var response = new AuthenticationResponse(
+        return registerResult.Match(
+            authResult => Ok(MapAuthResult(authResult)),
+            error => Problem(statusCode: (int)error.StatusCode, title: error.ErrorMessage)
+        );
+    }
+
+    private static AuthenticationResponse MapAuthResult(AuthenticationResult authResult)
+    {
+        return new AuthenticationResponse(
             authResult.User.Id,
             authResult.User.FirstName,
             authResult.User.LastName,
             authResult.User.Email,
             authResult.Token
         );
-
-        return Ok(response);
     }
-    
+
     [HttpPost("login")]
     public IActionResult Login(LoginRequest loginRequest)
     {
