@@ -1,5 +1,4 @@
 using MHTester.Application;
-using MHTester.Application.Services.Authentication;
 using MHTester.Infrastructure;
 
 var builder = WebApplication.CreateBuilder(args);

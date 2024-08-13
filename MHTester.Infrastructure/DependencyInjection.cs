@@ -1,6 +1,8 @@
 ﻿using MHTester.Application.Common.Interfaces.Authentication;
+using MHTester.Application.Common.Interfaces.Persistence;
 using MHTester.Application.Common.Interfaces.Services;
 using MHTester.Infrastructure.Authentication;
+using MHTester.Infrastructure.Persistence;
 using MHTester.Infrastructure.Services;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
@@ -15,6 +17,8 @@ public static class DependencyInjection
         
         services.AddSingleton<IJwtTokenGenerator, JwtTokenGenerator>();
         services.AddSingleton<IDateTimeProvider, DateTimeProvider>();
+        
+        services.AddScoped<IUserRepository, UserRepository>();
         
         return services;
     }

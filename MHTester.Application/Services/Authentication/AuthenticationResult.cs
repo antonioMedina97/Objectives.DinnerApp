@@ -1,9 +1,8 @@
-﻿namespace MHTester.Application.Services.Authentication;
+﻿using MHTester.Domain.Entities;
+
+namespace MHTester.Application.Services.Authentication;
 
 public record AuthenticationResult(
-    Guid Id,
-    string FirstName,
-    string LastName,
-    string Email,
+    User User,
     string Token
     );
