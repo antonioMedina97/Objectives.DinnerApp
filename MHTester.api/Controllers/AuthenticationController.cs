@@ -1,4 +1,5 @@
-﻿using MHTester.Application.Services.Authentication;
+﻿using MHTester.Application.Common.Errors;
+using MHTester.Application.Services.Authentication;
 using MHTester.Contracts.Authentication;
 using Microsoft.AspNetCore.Mvc;
 
@@ -26,10 +27,19 @@ public class AuthenticationController : ControllerBase
             registerRequest.Email,
             registerRequest.Password);
 
-        return registerResult.Match(
-            authResult => Ok(MapAuthResult(authResult)),
-            error => Problem(statusCode: (int)error.StatusCode, title: error.ErrorMessage)
-        );
+        if (registerResult.IsSuccess)
+        {
+            return Ok(MapAuthResult(registerResult.Value));
+        }
+
+        var firstError = registerResult.Errors.First();
+
+        if (firstError is DuplicateEmailError)
+        {
+            return Problem(statusCode: StatusCodes.Status409Conflict, title: "Email already exists.");
+        }
+
+        return Problem();
     }
 
     private static AuthenticationResponse MapAuthResult(AuthenticationResult authResult)
