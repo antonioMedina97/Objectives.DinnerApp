@@ -1,4 +1,5 @@
-﻿using MHTester.Application.Common.Interfaces.Authentication;
+﻿using MHTester.Application.Common;
+using MHTester.Application.Common.Interfaces.Authentication;
 using MHTester.Application.Common.Interfaces.Persistence;
 using MHTester.Domain.Entities;
 
@@ -10,7 +11,7 @@ public class AuthenticationService(IJwtTokenGenerator jwtTokenGenerator, IUserRe
     {
         if (userRepository.GetUserByEmail(email) is not null)
         {
-            throw new Exception("User with given email already exists");
+            throw new DuplicateEmailException();
         }
         
         var user = new User

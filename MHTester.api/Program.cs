@@ -1,6 +1,7 @@
-using MHTester.api.Filters;
+using MHTester.api.Common.Errors;
 using MHTester.Application;
 using MHTester.Infrastructure;
+using Microsoft.AspNetCore.Mvc.Infrastructure;
 
 var builder = WebApplication.CreateBuilder(args);
 {
@@ -8,15 +9,12 @@ var builder = WebApplication.CreateBuilder(args);
 		.AddApplication()
 		.AddInfrastructure(builder.Configuration);
 	builder.Services.AddControllers();
-	// Second approach
-	// builder.Services.AddControllers(		
-	// 	options => options.Filters.Add<ErrorHandlingFilterAttribute>()
-	// 	);
+
+	builder.Services.AddSingleton<ProblemDetailsFactory, MHTesterProblemDetailsFactory>();
 }
 
 var app = builder.Build();
 {
-	//app.UseMiddleware<ErrorHandlingMiddleware>(); First approach
 	app.UseExceptionHandler("/error");
 	app.UseHttpsRedirection();
 	app.MapControllers();
