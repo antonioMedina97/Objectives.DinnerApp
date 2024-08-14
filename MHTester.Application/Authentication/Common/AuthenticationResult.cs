@@ -1,8 +1,8 @@
 ﻿using MHTester.Domain.Entities;
 
-namespace MHTester.Application.Services.Authentication.Common;
+namespace MHTester.Application.Authentication.Common;
 
 public record AuthenticationResult(
     User User,
     string Token
-    );
+);

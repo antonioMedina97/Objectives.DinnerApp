@@ -1,22 +1,23 @@
 ﻿using ErrorOr;
+using MediatR;
+using MHTester.Application.Authentication.Common;
 using MHTester.Application.Common.Interfaces.Authentication;
 using MHTester.Application.Common.Interfaces.Persistence;
-using MHTester.Application.Services.Authentication.Common;
 using MHTester.Domain.Common.Errors;
 using MHTester.Domain.Entities;
 
-namespace MHTester.Application.Services.Authentication.Queries;
+namespace MHTester.Application.Authentication.Queries.Login;
 
-public class AuthenticationQueryService(IJwtTokenGenerator jwtTokenGenerator, IUserRepository userRepository) : IAuthenticationQueryService
+public class LoginQueryHandler(IJwtTokenGenerator jwtTokenGenerator, IUserRepository userRepository) : IRequestHandler<LoginQuery, ErrorOr<AuthenticationResult>>
 {
-    public ErrorOr<AuthenticationResult> Login(string email, string password)
+    public async Task<ErrorOr<AuthenticationResult>> Handle(LoginQuery query, CancellationToken cancellationToken)
     {
-        if (userRepository.GetUserByEmail(email) is not User user)
+        if (userRepository.GetUserByEmail(query.Email) is not User user)
         {
             return Errors.Authentication.InvalidCredentials;
         }
 
-        if (user.Password != password)
+        if (user.Password != query.Password)
         {
             return Errors.Authentication.InvalidCredentials;
         }
