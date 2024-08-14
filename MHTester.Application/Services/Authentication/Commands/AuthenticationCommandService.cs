@@ -1,12 +1,13 @@
 ﻿using ErrorOr;
 using MHTester.Application.Common.Interfaces.Authentication;
 using MHTester.Application.Common.Interfaces.Persistence;
+using MHTester.Application.Services.Authentication.Common;
 using MHTester.Domain.Common.Errors;
 using MHTester.Domain.Entities;
 
-namespace MHTester.Application.Services.Authentication;
+namespace MHTester.Application.Services.Authentication.Commands;
 
-public class AuthenticationService(IJwtTokenGenerator jwtTokenGenerator, IUserRepository userRepository) : IAuthenticationService
+public class AuthenticationCommandService(IJwtTokenGenerator jwtTokenGenerator, IUserRepository userRepository) : IAuthenticationCommandService
 {
     public ErrorOr<AuthenticationResult> Register(string firstName, string lastName, string email, string password)
     {
@@ -31,25 +32,5 @@ public class AuthenticationService(IJwtTokenGenerator jwtTokenGenerator, IUserRe
             user,
             token
             );
-    }
-
-    public ErrorOr<AuthenticationResult> Login(string email, string password)
-    {
-        if (userRepository.GetUserByEmail(email) is not User user)
-        {
-            return Errors.Authentication.InvalidCredentials;
-        }
-
-        if (user.Password != password)
-        {
-            return Errors.Authentication.InvalidCredentials;
-        }
-        
-        var token = jwtTokenGenerator.GenerateToken(user);
-        
-        return new AuthenticationResult(
-            user,
-            token
-        );
     }
 }

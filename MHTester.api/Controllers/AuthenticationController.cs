@@ -1,4 +1,7 @@
 ﻿using MHTester.Application.Services.Authentication;
+using MHTester.Application.Services.Authentication.Commands;
+using MHTester.Application.Services.Authentication.Common;
+using MHTester.Application.Services.Authentication.Queries;
 using MHTester.Contracts.Authentication;
 using Microsoft.AspNetCore.Mvc;
 
@@ -9,17 +12,19 @@ namespace MHTester.api.Controllers;
 public class AuthenticationController : ApiController
 {
     
-    private readonly IAuthenticationService _authenticationService;
+    private readonly IAuthenticationCommandService _authenticationCommandService;
+    private readonly IAuthenticationQueryService _authenticationQueryService;
 
-    public AuthenticationController(IAuthenticationService authenticationService)
+    public AuthenticationController(IAuthenticationCommandService authenticationCommandService, IAuthenticationQueryService authenticationQueryService)
     {
-        _authenticationService = authenticationService;
+        _authenticationCommandService = authenticationCommandService;
+        _authenticationQueryService = authenticationQueryService;
     }
 
     [HttpPost("register")]
     public IActionResult Register(RegisterRequest registerRequest)
     {
-        var authenticationResult = _authenticationService.Register(
+        var authenticationResult = _authenticationCommandService.Register(
             registerRequest.FirstName,
             registerRequest.LastName,
             registerRequest.Email,
@@ -31,6 +36,19 @@ public class AuthenticationController : ApiController
         );
     }
 
+
+    [HttpPost("login")]
+    public IActionResult Login(LoginRequest loginRequest)
+    {
+        var authenticationResult = _authenticationQueryService.Login(
+            loginRequest.Email,
+            loginRequest.Password);
+
+        return authenticationResult.Match(
+            authResult => Ok(MapAuthResult(authResult)),
+            errors => Problem(errors)
+        );
+    }
     private static AuthenticationResponse MapAuthResult(AuthenticationResult authResult)
     {
         return new AuthenticationResponse(
@@ -39,19 +57,6 @@ public class AuthenticationController : ApiController
             authResult.User.LastName,
             authResult.User.Email,
             authResult.Token
-        );
-    }
-
-    [HttpPost("login")]
-    public IActionResult Login(LoginRequest loginRequest)
-    {
-        var authenticationResult = _authenticationService.Login(
-            loginRequest.Email,
-            loginRequest.Password);
-
-        return authenticationResult.Match(
-            authResult => Ok(MapAuthResult(authResult)),
-            errors => Problem(errors)
         );
     }
 }
