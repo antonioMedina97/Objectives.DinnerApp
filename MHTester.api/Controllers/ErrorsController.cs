@@ -1,5 +1,4 @@
-﻿using MHTester.Application.Common;
-using Microsoft.AspNetCore.Diagnostics;
+﻿using Microsoft.AspNetCore.Diagnostics;
 using Microsoft.AspNetCore.Mvc;
 
 namespace MHTester.api.Controllers;
