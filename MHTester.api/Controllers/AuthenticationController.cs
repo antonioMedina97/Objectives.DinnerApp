@@ -5,12 +5,14 @@ using MHTester.Application.Authentication.Commands.Register;
 using MHTester.Application.Authentication.Common;
 using MHTester.Application.Authentication.Queries.Login;
 using MHTester.Contracts.Authentication;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 namespace MHTester.api.Controllers;
 
 
 [Route("auth")]
+[AllowAnonymous]
 public class AuthenticationController : ApiController
 {
     private readonly ISender _mediator;
