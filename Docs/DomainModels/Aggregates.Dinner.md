@@ -18,7 +18,7 @@ class Dinner
     "endDateTime": "2020-01-01T00:00:00.0000000Z",
     "startedDateTime": null,
     "endedDateTime": null,
-    "status": "Upcoming", // Upcoming, InProgress, Ended, Cancelled
+    "status": "Upcoming",
     "isPublic": true,
     "maxGuests": 10,
     "price": {
@@ -38,9 +38,9 @@ class Dinner
         {
             "id": { "value": "00000000-0000-0000-0000-000000000000" },
             "guestCount": 2,
-            "reservationStatus": "Reserved", // PendingGuestConfirmation, Reserved, Cancelled
+            "reservationStatus": "Reserved",
             "guestId": { "value": "00000000-0000-0000-0000-000000000000" },
-            "billId": { "value": "00000000-0000-0000-0000-000000000000 }",
+            "billId": { "value": "00000000-0000-0000-0000-000000000000" },
             "arrivalDateTime": null,
             "createdDateTime": "2020-01-01T00:00:00.0000000Z",
             "updatedDateTime": "2020-01-01T00:00:00.0000000Z"

@@ -2,11 +2,11 @@
 
 namespace MHTester.Domain.MenuAggregate.ValueObjects;
 
-public sealed class MenuId(Guid value) : ValueObject
+public sealed class MenuSectionId(Guid value) : ValueObject
 {
     private Guid Value { get; } = value;
 
-    public static MenuId CreateUnique()
+    public static MenuSectionId CreateUnique()
     {
         return new(Guid.NewGuid());
     }

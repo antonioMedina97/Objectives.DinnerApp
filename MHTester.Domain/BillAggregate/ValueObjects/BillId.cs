@@ -1,18 +1,18 @@
 ﻿using MHTester.Domain.Common.Models;
 
-namespace MHTester.Domain.MenuAggregate.ValueObjects;
+namespace MHTester.Domain.BillAggregate.ValueObjects;
 
-public sealed class MenuId(Guid value) : ValueObject
+public class BillId(Guid value) : ValueObject
 {
     private Guid Value { get; } = value;
 
-    public static MenuId CreateUnique()
+    public static BillId CreateUnique()
     {
         return new(Guid.NewGuid());
     }
 
     public override IEnumerable<object> GetEqualityComponents()
     {
-        yield return this.Value;
+        yield return Value;
     }
 }
