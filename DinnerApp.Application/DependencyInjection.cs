@@ -1,0 +1,26 @@
+﻿using System.Reflection;
+
+using DinnerApp.Application.Common.Behaviors;
+
+using FluentValidation;
+using MediatR;
+
+using Microsoft.Extensions.DependencyInjection;
+
+namespace DinnerApp.Application;
+
+public static class DependencyInjection
+{
+    public static IServiceCollection AddApplication(this IServiceCollection services)
+    {
+        services.AddMediatR(typeof(DependencyInjection).Assembly);
+        
+        services.AddScoped(
+            typeof(IPipelineBehavior<,>),
+            typeof(ValidationBehavior<,>));
+        
+        services.AddValidatorsFromAssembly(Assembly.GetExecutingAssembly());
+        
+        return services;
+    }
+}
